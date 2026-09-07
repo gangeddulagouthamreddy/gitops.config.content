@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: collections
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: collections
+  template:
+    metadata:
+      labels:
+        app: collections
+    spec:
+      containers:
+        - name: web
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
